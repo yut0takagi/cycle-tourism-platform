@@ -197,6 +197,16 @@ pip install -r requirements.txt
 python backend/app.py
 ```
 
+バックエンドのコードは以下のようにモジュールごとに分割されています。
+
+```
+backend/
+    app.py          # エントリーポイント
+    __init__.py     # Flask アプリ生成
+    routes/         # 各エンドポイントの Blueprint
+    services/       # 画像処理などのサービス層
+```
+
 `/`路線でAPIの結果がJSONで返ります。`/health`路線はヘルスチェック用です。
 
 ## フロントエンド (React)
