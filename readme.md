@@ -201,7 +201,7 @@ python backend/app.py
 
 ## フロントエンド (React)
 
-`frontend` ディレクトリには Tailwind CSS と Vanta.js を利用した簡易 React アプリを配置しています。画像をアップロードして道路損傷検知結果を表示するページと、動画からフレームを抜き出すページを切り替えて利用できます。
+`frontend` ディレクトリには Tailwind CSS と Vanta.js を利用した簡易 React アプリを配置しています。React コンポーネントは `useVanta.js`、`DamageDetector.js`、`VideoFrameExtractor.js`、`App.js` と複数のファイルに分割され、`index.js` から `ReactDOM.render` を呼び出しています。画像をアップロードして道路損傷検知結果を表示するページと、動画からフレームを抜き出すページを切り替えて利用できます。
 
 ### 起動方法
 
