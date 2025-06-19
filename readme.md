@@ -198,3 +198,18 @@ python backend/app.py
 ```
 
 `/`路線でAPIの結果がJSONで返ります。`/health`路線はヘルスチェック用です。
+
+## フロントエンド (React)
+
+`frontend` ディレクトリには Tailwind CSS と Vanta.js を利用した簡易 React アプリを配置しています。画像をアップロードして道路損傷検知結果を表示するページと、動画からフレームを抜き出すページを切り替えて利用できます。
+
+### 起動方法
+
+以下のように静的サーバを立ち上げてアクセスしてください。
+
+```bash
+cd frontend
+python -m http.server 8000
+```
+
+ブラウザで `http://localhost:8000` を開くとアプリが表示されます。
