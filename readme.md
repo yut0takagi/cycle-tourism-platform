@@ -186,3 +186,15 @@ Transaction(id, user_id, coin, type, ref_id)
 ---
 
 > **備考**: 本要件定義は初版ドラフトであり、ステークホルダーとのレビューを経て優先度や KPI を更新します。
+
+## バックエンド API (Flask)
+
+簡易的なバックエンドAPIをFlaskで構築しました。
+以下の手順で開発サーバを起動できます。
+
+```bash
+pip install -r requirements.txt
+python backend/app.py
+```
+
+`/`路線でAPIの結果がJSONで返ります。`/health`路線はヘルスチェック用です。
