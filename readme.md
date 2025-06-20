@@ -190,6 +190,8 @@ Transaction(id, user_id, coin, type, ref_id)
 ## バックエンド API (Flask)
 
 簡易的なバックエンドAPIをFlaskで構築しました。
+現在はBlueprintを用いて`backend/routes`と`backend/services`に機能を分割し、
+スケールしやすい構成になっています。
 以下の手順で開発サーバを起動できます。
 
 ```bash
