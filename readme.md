@@ -190,6 +190,8 @@ Transaction(id, user_id, coin, type, ref_id)
 ## バックエンド API (Flask)
 
 簡易的なバックエンドAPIをFlaskで構築しました。
+現在はBlueprintを用いて`backend/routes`と`backend/services`に機能を分割し、
+スケールしやすい構成になっています。
 以下の手順で開発サーバを起動できます。
 
 ```bash
@@ -211,7 +213,7 @@ backend/
 
 ## フロントエンド (React)
 
-`frontend` ディレクトリには Tailwind CSS と Vanta.js を利用した簡易 React アプリを配置しています。画像をアップロードして道路損傷検知結果を表示するページと、動画からフレームを抜き出すページを切り替えて利用できます。
+`frontend` ディレクトリには Tailwind CSS と Vanta.js を利用した簡易 React アプリを配置しています。React コンポーネントは `useVanta.js`、`DamageDetector.js`、`VideoFrameExtractor.js`、`App.js` と複数のファイルに分割され、`index.js` から `ReactDOM.render` を呼び出しています。画像をアップロードして道路損傷検知結果を表示するページと、動画からフレームを抜き出すページを切り替えて利用できます。
 
 ### 起動方法
 
@@ -223,3 +225,21 @@ python -m http.server 8000
 ```
 
 ブラウザで `http://localhost:8000` を開くとアプリが表示されます。
+
+## 物体検知ファインチューニングパイプライン
+
+`backend/object_detection_pipeline.py` には、COCO 形式データセットの統計記録、Faster R-CNN のファインチューニング、学習済みモデルの簡易検証を行うスクリプトを追加しました。
+
+### 使い方
+
+```bash
+# データセットの統計をJSONに出力
+python backend/object_detection_pipeline.py log /path/to/dataset stats.json
+
+# モデルのファインチューニング
+python backend/object_detection_pipeline.py train /path/to/dataset output_dir --epochs 10
+
+# 検証 (平均IoUを表示)
+python backend/object_detection_pipeline.py eval output_dir/model.pt /path/to/val_dataset
+```
+
