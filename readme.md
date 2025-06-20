@@ -213,3 +213,21 @@ python -m http.server 8000
 ```
 
 ブラウザで `http://localhost:8000` を開くとアプリが表示されます。
+
+## 物体検知ファインチューニングパイプライン
+
+`backend/object_detection_pipeline.py` には、COCO 形式データセットの統計記録、Faster R-CNN のファインチューニング、学習済みモデルの簡易検証を行うスクリプトを追加しました。
+
+### 使い方
+
+```bash
+# データセットの統計をJSONに出力
+python backend/object_detection_pipeline.py log /path/to/dataset stats.json
+
+# モデルのファインチューニング
+python backend/object_detection_pipeline.py train /path/to/dataset output_dir --epochs 10
+
+# 検証 (平均IoUを表示)
+python backend/object_detection_pipeline.py eval output_dir/model.pt /path/to/val_dataset
+```
+

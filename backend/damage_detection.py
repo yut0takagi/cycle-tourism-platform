@@ -9,7 +9,7 @@ from PIL import Image
 
 def decode_image(base64_str: str) -> np.ndarray:
     image_data = base64.b64decode(base64_str)
-    image = Image.open(BytesIO(image_data)).convert('RGB')
+    image = Image.open(BytesIO(image_data)).convert("RGB")
     return cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
 
 
@@ -26,6 +26,3 @@ def detect_damage(image: np.ndarray) -> List[Tuple[int, int, int, int]]:
         if w * h > 500:  # simple area threshold
             boxes.append((int(x), int(y), int(w), int(h)))
     return boxes
-
-
-
