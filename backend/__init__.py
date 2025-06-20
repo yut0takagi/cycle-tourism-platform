@@ -1,10 +1,14 @@
 from flask import Flask
 
-from backend.routes import base_bp, damage_bp
+
+from backend.routes import ALL_BLUEPRINTS
+
 
 
 def create_app() -> Flask:
     app = Flask(__name__)
-    app.register_blueprint(base_bp)
-    app.register_blueprint(damage_bp)
+
+    for bp in ALL_BLUEPRINTS:
+        app.register_blueprint(bp)
+
     return app
