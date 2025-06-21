@@ -4,7 +4,6 @@ from flask import Flask
 from backend.routes import ALL_BLUEPRINTS
 
 
-
 def create_app() -> Flask:
     app = Flask(__name__)
 
