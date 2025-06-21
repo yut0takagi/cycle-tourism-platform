@@ -243,3 +243,12 @@ python backend/object_detection_pipeline.py train /path/to/dataset output_dir --
 python backend/object_detection_pipeline.py eval output_dir/model.pt /path/to/val_dataset
 ```
 
+
+## テストの実行
+
+ユニットテストは `pytest` で実行できます。
+
+```bash
+pip install -r requirements.txt
+pytest
+```
